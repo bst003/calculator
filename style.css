@@ -6,6 +6,7 @@ Base Styles & Universal Elements
     --base-red: #96031A;
     --base-blue: #235789;
     --base-light-gray: #F5F5F5;
+    --base-med-gray: #CCCCCC;
     --base-font: 'Ubuntu', sans-serif;}
 
 html,
@@ -30,3 +31,25 @@ body{
 
 #calculator-content{
     padding: 5rem 0;}
+
+#calculator{
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    max-width: 470px;
+    width: 100%;
+    background-color: var(--base-light-gray);
+    border-radius: 1rem;
+    border: .125rem solid var(--base-med-gray);}
+
+    #screen{
+        border-radius: 1rem;
+        padding: .75rem 1rem;
+        background-color: var(--base-med-gray);
+        text-align: right;}
+
+    #buttons-contain{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);}
+
+        #buttons-contain .double{
+            grid-column-end: span 2;}
