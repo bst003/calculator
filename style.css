@@ -6,6 +6,7 @@ Base Styles & Universal Elements
     --base-red: #96031A;
     --base-blue: #235789;
     --base-light-gray: #F5F5F5;
+    --base-light-gray-alt: #e5e5e5;
     --base-med-gray: #CCCCCC;
     --base-font: 'Ubuntu', sans-serif;}
 
@@ -35,21 +36,53 @@ body{
 #calculator{
     margin: 0 auto;
     padding: 1.5rem 1rem;
-    max-width: 470px;
+    max-width: 430px;
     width: 100%;
     background-color: var(--base-light-gray);
     border-radius: 1rem;
     border: .125rem solid var(--base-med-gray);}
 
     #screen{
+        margin: 0 0 1.25rem;
         border-radius: 1rem;
-        padding: .75rem 1rem;
-        background-color: var(--base-med-gray);
+        padding: 1.125rem 1rem;
+        background-color: var(--base-light-gray-alt);
+        font-size: 1.25rem;
         text-align: right;}
 
     #buttons-contain{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);}
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: .75rem;
+        grid-row-gap: .75rem;}
 
         #buttons-contain .double{
             grid-column-end: span 2;}
+
+        #buttons-contain button{
+            cursor: pointer;
+            padding: .6rem .5rem;
+            background-color: var(--base-light-gray-alt);
+            border: initial;
+            border-radius: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: all .2s;}
+            #buttons-contain button:hover{
+                box-shadow: 1px 1px 5px rgba(60, 60, 60, 0.2);
+                transition: all .2s;}
+
+        #buttons-contain button.operator{
+            background-color: #DFEBF6;}
+
+        #buttons-contain button#enter{
+            background-color: var(--base-orange);
+            color: #fff;}
+            #buttons-contain button#enter:hover{
+                box-shadow: 1px 1px 5px rgba(60, 60, 60, 0.6);}
+
+        #buttons-contain button#clear{
+            background-color: var(--base-red);
+            color: #fff;}
+            #buttons-contain button#clear:hover{
+                box-shadow: 1px 1px 5px rgba(60, 60, 60, 0.6);}
