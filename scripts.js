@@ -22,6 +22,7 @@ let displayValue = ``;
 const numberButtons = document.querySelectorAll('.num-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 
+const clearButton = document.querySelector('#clear');
 const enterButton = document.querySelector('#enter');
 
 const message = document.querySelector('#message');
@@ -155,6 +156,22 @@ function evaluateValues() {
 }
 
 
+function clearValues() {
+
+    valueA = '';
+    valueAFilled = false;
+
+    valueB = '';
+
+    currentOperator = '';
+
+    displayValue = ``;
+
+    updateDisplay();
+
+}
+
+
 numberButtons.forEach( (numberButton) => {
     numberButton.addEventListener( 'click', assignNumberValues);
 });
@@ -164,5 +181,7 @@ operatorButtons.forEach( (operatorButton) => {
     operatorButton.addEventListener( 'click', assignOperatorValues);
 });
 
+
+clearButton.addEventListener( 'click', clearValues );
 
 enterButton.addEventListener( 'click', evaluateValues );
