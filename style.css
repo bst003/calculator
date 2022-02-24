@@ -43,6 +43,7 @@ body{
     box-shadow: 1px 1px 10px rgba(60, 60, 60, .85);}
 
     #screen{
+        min-height: 3.875rem;
         margin: 0 0 1.5rem;
         border-radius: 1rem;
         padding: 1.125rem 1rem;

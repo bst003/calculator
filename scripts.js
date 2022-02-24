@@ -23,6 +23,10 @@ let displayValue = ``;
 const numberButtons = document.querySelectorAll('.num-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 
+const enterButton = document.querySelector('#enter');
+
+const message = document.querySelector('#message');
+
 
 /*/////////////////////////////////////////
 Functions
@@ -32,20 +36,21 @@ Functions
 ////////////////////
 
 function add( a, b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtract( a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiply( a, b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 function divide( a, b) {
-    return a / b;
+    return Number(a) / Number(b);
 }
+
 
 function operate( val1, val2, operator) {
 
@@ -60,7 +65,7 @@ function operate( val1, val2, operator) {
         case '-':
             result = subtract(val1, val2);
             break;
-        
+
         case '*':
             result = multiply(val1, val2);
             break;
@@ -75,6 +80,16 @@ function operate( val1, val2, operator) {
 
 }
 
+function updateDisplay() {
+
+    const screen = document.querySelector('#screen');
+
+    displayValue = `${valueA} ${currentOperator} ${valueB}`;
+
+    screen.innerText = displayValue;
+
+}
+
 
 // Main Functions
 ////////////////////
@@ -86,10 +101,69 @@ function assignNumberValues(e) {
     if( !valueAFilled ){
         valueA += currentValue;
         console.log(valueA);
+    } else {
+        valueB += currentValue;
+        console.log(valueB);
     }
 
+    updateDisplay();
+
 }
+
+
+function assignOperatorValues(e) {
+
+    let currentValue = e.currentTarget.getAttribute('data-value');
+
+    // if both values are filled and operator is set
+    if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
+
+        valueA = operate( valueA, valueB, currentOperator );
+        currentOperator = currentValue;
+
+        valueB = '';
+
+    } else {
+
+        currentOperator = currentValue;
+        valueAFilled = true;
+        console.log(currentOperator);
+
+    }
+
+    updateDisplay();
+
+}
+
+
+function evaluateValues() {
+
+    if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
+
+        valueA = operate( valueA, valueB, currentOperator );
+
+        valueB = '';
+        currentOperator ='';
+
+    } else {
+
+        console.log('test');
+
+    }
+
+    updateDisplay();
+
+}
+
 
 numberButtons.forEach( (numberButton) => {
     numberButton.addEventListener( 'click', assignNumberValues);
 });
+
+
+operatorButtons.forEach( (operatorButton) => {
+    operatorButton.addEventListener( 'click', assignOperatorValues);
+});
+
+
+enterButton.addEventListener( 'click', evaluateValues );
