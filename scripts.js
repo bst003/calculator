@@ -82,7 +82,7 @@ function operate( val1, val2, operator) {
     }
 
     if( result - Math.floor(result) !== 0 ){
-        console.log('has decimal');
+        result = Math.round( valueA * 100) / 100;
     }
 
     return result;
