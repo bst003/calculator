@@ -81,6 +81,10 @@ function operate( val1, val2, operator) {
 
     }
 
+    if( result.toString().includes('.') ){
+        console.log('has decimal');
+    }
+
     return result;
 
 }
