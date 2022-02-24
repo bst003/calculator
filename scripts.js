@@ -81,7 +81,7 @@ function operate( val1, val2, operator) {
 
     }
 
-    if( result.toString().includes('.') ){
+    if( result - Math.floor(result) !== 0 ){
         console.log('has decimal');
     }
 
