@@ -13,7 +13,6 @@ let valueA = '';
 let valueAFilled = false;
 
 let valueB = '';
-let valueBFilled = false;
 
 let currentOperator = '';
 
