@@ -87,3 +87,11 @@ body{
             color: #fff;}
             #buttons-contain button#clear:hover{
                 box-shadow: 1px 1px 5px rgba(60, 60, 60, 0.6);}
+
+#message{
+    display: block;
+    margin: 1rem auto 0;
+    max-width: 26.25rem;
+    color: var(--base-orange);
+    font-weight: 700;
+    text-align: center;}

@@ -48,7 +48,12 @@ function multiply( a, b) {
 }
 
 function divide( a, b) {
-    return Number(a) / Number(b);
+    if( Number(b) === Number(0) ){
+        message.innerText = 'You cannot divide by 0';
+        return Number(0);
+    } else {
+        return Number(a) / Number(b);
+    }
 }
 
 
@@ -80,6 +85,7 @@ function operate( val1, val2, operator) {
 
 }
 
+
 function updateDisplay() {
 
     const screen = document.querySelector('#screen');
@@ -87,6 +93,15 @@ function updateDisplay() {
     displayValue = `${valueA} ${currentOperator} ${valueB}`;
 
     screen.innerText = displayValue;
+
+}
+
+
+function clearMessage() {
+
+    if( message.innerText.length > 0 ){
+        message.innerText = '';
+    }
 
 }
 
@@ -107,6 +122,7 @@ function assignNumberValues(e) {
     }
 
     updateDisplay();
+    clearMessage();
 
 }
 
@@ -132,6 +148,7 @@ function assignOperatorValues(e) {
     }
 
     updateDisplay();
+    clearMessage();
 
 }
 
@@ -147,7 +164,7 @@ function evaluateValues() {
 
     } else {
 
-        console.log('test');
+        message.innerText = 'You must have enter two values and an operator';
 
     }
 
