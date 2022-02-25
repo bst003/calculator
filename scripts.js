@@ -22,6 +22,7 @@ let displayValue = ``;
 const numberButtons = document.querySelectorAll('.num-button');
 const operatorButtons = document.querySelectorAll('.operator-button');
 
+const backButton = document.querySelector('#back');
 const clearButton = document.querySelector('#clear');
 const enterButton = document.querySelector('#enter');
 
@@ -206,6 +207,30 @@ function clearValues() {
 }
 
 
+function deleteValue() {
+
+    if( valueB.length > 0 ){
+
+        valueB = valueB.substring(0, valueB.length - 1);
+
+    } else if ( currentOperator.length > 0 ){
+
+        currentOperator = currentOperator.substring(0, currentOperator.length - 1);
+        // set valueAFilled as false in case user wants to add to valueA after deleting operator
+        valueAFilled = false;
+
+    } else if (valueA.length > 0 ){
+        
+        valueA = valueA.substring(0, valueA.length - 1);
+
+    }
+
+    updateDisplay();
+    clearMessage();
+
+}
+
+
 numberButtons.forEach( (numberButton) => {
     numberButton.addEventListener( 'click', assignNumberValues);
 });
@@ -215,6 +240,8 @@ operatorButtons.forEach( (operatorButton) => {
     operatorButton.addEventListener( 'click', assignOperatorValues);
 });
 
+
+backButton.addEventListener( 'click', deleteValue );
 
 clearButton.addEventListener( 'click', clearValues );
 
