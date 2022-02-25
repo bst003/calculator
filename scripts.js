@@ -118,11 +118,23 @@ function assignNumberValues(e) {
     let currentValue = e.currentTarget.getAttribute('data-value');
 
     if( !valueAFilled ){
+
+        if( currentValue === '.' && valueA.includes('.') ){
+            return;
+        }
+
         valueA += currentValue;
         console.log(valueA);
+
     } else {
+
+        if( currentValue === '.' && valueB.includes('.') ){
+            return;
+        } 
+
         valueB += currentValue;
         console.log(valueB);
+
     }
 
     updateDisplay();
