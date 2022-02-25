@@ -189,6 +189,7 @@ function clearValues() {
     displayValue = ``;
 
     updateDisplay();
+    clearMessage();
 
 }
 
