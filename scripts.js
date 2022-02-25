@@ -76,7 +76,7 @@ function operate( val1, val2, operator) {
     }
 
     if( result - Math.floor(result) !== 0 ){
-        result = Math.round( result * 100) / 100;
+        result = Math.round( result * 1000) / 1000;
     }
 
     return result;
