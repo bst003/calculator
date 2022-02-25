@@ -231,6 +231,22 @@ function deleteValue() {
 
 }
 
+function keyUpInput(e) {
+
+    const keyPressed = e.keyCode;
+    const selectedButton = document.querySelector(`button[data-key="${keyPressed}"]`);
+
+    if( selectedButton ){
+        selectedButton.click();
+    }
+
+    // If enter key is used evaluate values
+    if( keyPressed === 13 ){
+        evaluateValues();
+    }
+
+}
+
 
 numberButtons.forEach( (numberButton) => {
     numberButton.addEventListener( 'click', assignNumberValues);
@@ -241,6 +257,8 @@ operatorButtons.forEach( (operatorButton) => {
     operatorButton.addEventListener( 'click', assignOperatorValues);
 });
 
+
+window.addEventListener('keyup', keyUpInput);
 
 backButton.addEventListener( 'click', deleteValue );
 
