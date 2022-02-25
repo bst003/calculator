@@ -97,9 +97,7 @@ function updateDisplay() {
 
 function clearMessage() {
 
-    if( message.innerText.length > 0 ){
-        message.innerText = '';
-    }
+    message.innerText = '';
 
 }
 
@@ -139,9 +137,9 @@ function assignOperatorValues(e) {
 
     let currentValue = e.currentTarget.getAttribute('data-value');
 
-    if( valueA === '.' || valueB === '.' ){
+    if( valueA === '.' || valueB === '.' || valueA === '-' || valueB === '-'){
 
-        message.innerText = 'Values cannot just be a decimal point';
+        message.innerText = 'Values need to contain a numeric value';
         return;
         
     }
