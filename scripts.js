@@ -102,6 +102,38 @@ function clearMessage() {
 }
 
 
+function checkForLeadingZeros(value) {
+
+    if( value.includes('.') ){
+
+        let splitValue = value.split('.');
+
+        if( !splitValue[0].match(/[^0]+/g) ) {
+            return true;
+        }
+
+    }
+
+    return false;
+
+}
+
+
+function removeLeadingZeros(value) {
+
+    let combinedValue;
+    let splitValue = value.split('.');
+
+    splitValue[0] = '0';
+
+    combinedValue = splitValue.join('.');
+
+    return combinedValue;
+
+
+}
+
+
 // Main Functions
 ////////////////////
 
@@ -115,6 +147,10 @@ function assignNumberValues(e) {
             return;
         }
 
+        if( checkForLeadingZeros(valueA) ){
+            valueA = removeLeadingZeros(valueA);
+        }
+
         valueA += currentValue;
 
     } else {
@@ -122,6 +158,10 @@ function assignNumberValues(e) {
         if( currentValue === '.' && valueB.includes('.') ){
             return;
         } 
+
+        if( checkForLeadingZeros(valueB) ){
+            valueB = removeLeadingZeros(valueB);
+        }
 
         valueB += currentValue;
 
@@ -249,7 +289,7 @@ function keyUpInput(e) {
 }
 
 
-/*/////////////////////////////////////////https://bst003.github.io/calculator/
+/*/////////////////////////////////////////
 Setup and Interaction
 /////////////////////////////////////////*/
 
