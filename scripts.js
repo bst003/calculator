@@ -2,13 +2,6 @@
 Global Variables
 /////////////////////////////////////////*/
 
-// Empty values for valueA and value B.
-// Once an operator is clicked the valueAFilled will be set to true.
-// If valueAFilled is true then the next num-button values will be set to valueB.
-// If both valueAFilled and valueBFilled are true and an operator is clicked
-// then valueA and valueB will be evaluate by the proper operator and the result will be set to valueA.
-// currentOperator and valueB will then be set to empty again.
-
 let valueA = '';
 let valueAFilled = false;
 
@@ -125,7 +118,6 @@ function assignNumberValues(e) {
         }
 
         valueA += currentValue;
-        console.log(valueA);
 
     } else {
 
@@ -134,7 +126,6 @@ function assignNumberValues(e) {
         } 
 
         valueB += currentValue;
-        console.log(valueB);
 
     }
 
@@ -160,7 +151,6 @@ function assignOperatorValues(e) {
 
         currentOperator = currentValue;
         valueAFilled = true;
-        console.log(currentOperator);
 
     }
 
@@ -222,7 +212,6 @@ function deleteValue() {
 
     } else if (valueA.length > 0 ){
         
-        console.log('test');
         valueA = valueA.substring(0, valueA.length - 1);
 
     }
@@ -234,7 +223,6 @@ function deleteValue() {
 
 function keyUpInput(e) {
 
-    console.log(e);
     const keyPressed = e.keyCode;
     const shiftUsed = e.shiftKey;
     const selectedButton = document.querySelector(`button[data-key="${keyPressed}"][data-shift="${shiftUsed}"]`);
