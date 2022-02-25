@@ -174,7 +174,7 @@ function evaluateValues() {
 
     if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
 
-        valueA = operate( valueA, valueB, currentOperator );
+        valueA = operate( valueA, valueB, currentOperator ).toString();
         valueAFilled = false;
 
         valueB = '';
@@ -222,6 +222,7 @@ function deleteValue() {
 
     } else if (valueA.length > 0 ){
         
+        console.log('test');
         valueA = valueA.substring(0, valueA.length - 1);
 
     }
@@ -235,7 +236,8 @@ function keyUpInput(e) {
 
     console.log(e);
     const keyPressed = e.keyCode;
-    const selectedButton = document.querySelector(`button[data-key="${keyPressed}"]`);
+    const shiftUsed = e.shiftKey;
+    const selectedButton = document.querySelector(`button[data-key="${keyPressed}"][data-shift="${shiftUsed}"]`);
 
     if( selectedButton ){
         selectedButton.click();
@@ -243,7 +245,7 @@ function keyUpInput(e) {
 
     // If enter key is used evaluate values
     if( keyPressed === 13 ){
-        evaluateValues();
+        enterButton.click();
     }
 
 }
