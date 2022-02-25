@@ -139,6 +139,11 @@ function assignOperatorValues(e) {
 
     let currentValue = e.currentTarget.getAttribute('data-value');
 
+    if( valueA === '.' || valueB === '.' ){
+        message.innerText = 'Values cannot just be a decimal point';
+        return;
+    }
+
     // if both values are filled and operator is set
     if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
 
@@ -162,7 +167,10 @@ function assignOperatorValues(e) {
 
 function evaluateValues() {
 
-    if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
+    if( valueA === '.' || valueB === '.' ){
+        message.innerText = 'Values cannot just be a decimal point';
+        return;
+    } else if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
 
         valueA = operate( valueA, valueB, currentOperator ).toString();
         valueAFilled = false;
