@@ -233,6 +233,7 @@ function deleteValue() {
 
 function keyUpInput(e) {
 
+    console.log(e);
     const keyPressed = e.keyCode;
     const selectedButton = document.querySelector(`button[data-key="${keyPressed}"]`);
 
@@ -246,6 +247,11 @@ function keyUpInput(e) {
     }
 
 }
+
+
+/*/////////////////////////////////////////
+Setup and Interaction
+/////////////////////////////////////////*/
 
 
 numberButtons.forEach( (numberButton) => {
