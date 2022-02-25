@@ -175,6 +175,7 @@ function evaluateValues() {
     if( valueAFilled && currentOperator !== '' && valueB.length > 0 ){
 
         valueA = operate( valueA, valueB, currentOperator );
+        valueAFilled = false;
 
         valueB = '';
         currentOperator ='';
