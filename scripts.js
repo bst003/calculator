@@ -256,7 +256,7 @@ function deleteValue() {
 
     } else if ( currentOperator.length > 0 ){
 
-        currentOperator = currentOperator.substring(0, currentOperator.length - 1);
+        currentOperator = '';
         // set valueAFilled as false in case user wants to add to valueA after deleting operator
         valueAFilled = false;
 
